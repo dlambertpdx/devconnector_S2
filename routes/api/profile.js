@@ -231,8 +231,6 @@ router.delete(
   "/experience/:exp_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateExperienceInput(req.body);
-
     profile
       .findOne({ user: req.user.id })
       .then(profile => {
@@ -258,8 +256,6 @@ router.delete(
   "/education/:edu_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateEducationInput(req.body);
-
     profile
       .findOne({ user: req.user.id })
       .then(profile => {
